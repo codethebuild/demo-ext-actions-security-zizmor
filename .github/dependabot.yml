@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    # Apply a 7-day cooldown period between pull requests
+    # This prevents too many updates in a short time
+    pull-request-branch-name:
+      separator: "-"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
