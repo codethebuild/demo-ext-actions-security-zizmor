@@ -4,7 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 10
+
+    cooldown:
+      default-days: 710
     groups:
       github-actions:
         patterns:
