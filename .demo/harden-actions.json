@@ -3,13 +3,6 @@
   "title": "Harden GitHub Actions with Zizmor",
   "description": "Security demos and demonstrations for hardening GitHub Actions workflows",
   "version": 2,
-  "variables": [
-    {
-      "name": "ZIZMOR_TERMINAL_WAIT_TIME",
-      "description": "Wait time after zizmor command execution",
-      "default": 3000
-    }
-  ],
   "demos": [
     {
       "id": "add-workflows",
@@ -36,10 +29,6 @@
           "insertTypingSpeed": 50
         },
         {
-          "action": "showInfoMessage",
-          "message": "🔒 Adding zizmor security workflow to scan GitHub Actions..."
-        },
-        {
           "action": "create",
           "path": ".github/workflows/zizmor.yml"
         },
@@ -59,16 +48,8 @@
           "insertTypingSpeed": 50
         },
         {
-          "action": "showInfoMessage",
-          "message": "✅ zizmor workflow added and staged for commit!"
-        },
-        {
           "action": "waitForTimeout",
           "timeout": 10000
-        },
-        {
-          "action": "showInfoMessage",
-          "message": "🔒 Adding dependency review workflow to scan dependencies..."
         },
         {
           "action": "create",
@@ -88,10 +69,6 @@
           "command": "git add .github/workflows/dependency-review.yml",
           "insertTypingMode": "character-by-character",
           "insertTypingSpeed": 50
-        },
-        {
-          "action": "showInfoMessage",
-          "message": "✅ Dependency review workflow added and staged for commit!"
         },
         {
           "action": "executeTerminalCommand",
@@ -120,10 +97,6 @@
           "command": "gh pr view --web",
           "insertTypingMode": "character-by-character",
           "insertTypingSpeed": 50
-        },
-        {
-          "action": "showInfoMessage",
-          "message": "✅ Pull request created! Security workflows are ready for review."
         }
       ]
     },
@@ -160,6 +133,10 @@
           "action": "save"
         },
         {
+          "action": "openTerminal",
+          "terminalId": "git"
+        }
+        {
           "action": "executeTerminalCommand",
           "terminalId": "git",
           "command": "git add .github/dependabot.yml",
@@ -172,7 +149,7 @@
           "command": "git commit -m 'chore: Add cooldown period to Dependabot'",
           "insertTypingMode": "character-by-character",
           "insertTypingSpeed": 50
-        }
+        },
         {
           "action": "executeTerminalCommand",
           "terminalId": "git",
@@ -554,10 +531,6 @@
           "timeout": 2000
         },
         {
-          "action": "showInfoMessage",
-          "message": "✅ Workflow hardened! Actions pinned, permissions restricted, credentials protected"
-        },
-        {
           "action": "save"
         },
         {
@@ -610,10 +583,6 @@
           "command": "gh pr view --web",
           "insertTypingMode": "character-by-character",
           "insertTypingSpeed": 50
-        },
-        {
-          "action": "showInfoMessage",
-          "message": "✅ Changes committed and pushed to the branch!"
         }
       ]
     }
